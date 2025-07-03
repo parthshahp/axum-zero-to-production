@@ -1,3 +1,4 @@
+use crate::configuration::Settings;
 use axum::{
     Router,
     routing::{get, post},
@@ -11,7 +12,7 @@ pub fn app() -> Router {
         .route("/subscriptions", post(routes::subscribe))
 }
 
-pub async fn run() {
+pub async fn run(_configuration: Settings) {
     let app = app();
     let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
         .await
