@@ -7,8 +7,8 @@ use crate::routes;
 
 pub fn app() -> Router {
     Router::new()
-        .route("/health_check", get(routes::health_check::health_check))
-        .route("/subscriptions", post(routes::subscriptions::subscribe))
+        .route("/health_check", get(routes::health_check))
+        .route("/subscriptions", post(routes::subscribe))
 }
 
 pub async fn run() {
